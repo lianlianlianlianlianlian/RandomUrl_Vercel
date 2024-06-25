@@ -29,7 +29,13 @@ if ($lastRequestDate != $currentDate) {
     $currentUrl = $lastUrl;
 }
 
+// 启用输出缓冲
+ob_start();
+
 // 跳转到当前 URL
 header('Location: ' . $currentUrl);
+
+// 发送缓冲区的内容
+ob_end_flush();
 exit();
 ?>
