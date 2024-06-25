@@ -9,8 +9,8 @@ header('Cache-Control: max-age=' . $expires);
 $currentDate = date('Y-m-d');
 
 // 读取上次请求的日期和 URL
-$lastRequestData = getenv('LAST_REQUEST_DATA');
-list($lastRequestDate, $lastUrl) = explode(' ', $lastRequestData);
+$lastRequestData = isset($_COOKIE['LAST_REQUEST_DATA']) ? $_COOKIE['LAST_REQUEST_DATA'] : '';
+list($lastRequestDate, $lastUrl) = explode(' ', $lastRequestData . ' ');
 
 // 如果是新的一天，那么从 random.txt 文件中随机选择一个新的 URL
 if ($lastRequestDate != $currentDate) {
@@ -22,8 +22,8 @@ if ($lastRequestDate != $currentDate) {
 
     // 更新图片操作...
 
-    // 保存当前请求的日期和 URL
-    putenv('LAST_REQUEST_DATA=' . $currentDate . ' ' . $currentUrl);
+    // 保存当前请求的日期和 URL 到 cookie
+    setcookie('LAST_REQUEST_DATA', $currentDate . ' ' . $currentUrl, time() + $expires, "/");
 } else {
     // 如果不是新的一天，那么使用上次请求的 URL
     $currentUrl = $lastUrl;
