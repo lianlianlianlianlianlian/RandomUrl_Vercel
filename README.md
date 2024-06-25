@@ -1,8 +1,4 @@
 # RandomUrl_Vercel
-# RandoUrl_Vercel
-
-
-
 使用Vercel无需服务器即可部署你的专属随机图API！！！
 
 ## 常见问题
