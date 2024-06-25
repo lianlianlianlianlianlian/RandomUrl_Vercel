@@ -1,6 +1,11 @@
 # RandomUrl_Vercel
 使用Vercel无需服务器即可部署你的专属随机图API！！！
 
+
+## 一键部署！
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/lianlianlianlianlianlian/RandomUrl_Vercel)
+
+
 ## 常见问题
 1. Vercel部署PHP项目后 需要去项目设置里把 Node.js Version 改成1.8.x （默认是20.x）
 
